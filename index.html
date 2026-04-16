@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ron Chaudhuri — AI & Data</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --text: #1a1a1a; --text-muted: #5a5a5a; --text-hint: #999;
+    --border: rgba(0,0,0,0.11); --border-strong: rgba(0,0,0,0.22);
+    --surface: #ffffff; --surface-2: #f7f7f5;
+    --tag-bg: #f0efed; --tag-text: #555;
+    --accent-light: #f2f2f0;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --text: #ede9e3; --text-muted: #a0998e; --text-hint: #666;
+      --border: rgba(255,255,255,0.09); --border-strong: rgba(255,255,255,0.18);
+      --surface: #161614; --surface-2: #1e1e1b;
+      --tag-bg: #272724; --tag-text: #aaa; --accent-light: #222;
+    }
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, sans-serif; color: var(--text); background: var(--surface); font-size: 15px; line-height: 1.65; }
+  a { color: inherit; text-decoration: none; }
+
+  /* NAV */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--surface); border-bottom: 0.5px solid var(--border);
+    padding: 0 3rem; display: flex; align-items: center; justify-content: space-between; height: 54px;
+  }
+  .nav-name { font-family: 'Inter', sans-serif; font-size: 15px; letter-spacing: -0.02em; font-weight: 600; }
+  .nav-links { display: flex; gap: 1.75rem; }
+  .nav-links a { font-family: 'Inter', sans-serif; font-size: 13px; letter-spacing: 0; text-transform: none; color: var(--text-muted); transition: color 0.15s; font-weight: 400; }
+  .nav-links a:hover { color: var(--text); }
+  @media (max-width: 600px) { .nav-links { display: none; } }
+
+  /* CONTAINER */
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 3rem; }
+
+  /* HERO */
+  .hero { max-width: 1100px; margin: 0 auto; padding: 5rem 3rem 4.5rem; display: flex; align-items: center; justify-content: space-between; gap: 3rem; }
+  .hero-left { flex: 1; min-width: 0; }
+  .hero-label { font-family: 'Inter', sans-serif; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-hint); margin-bottom: 1rem; font-weight: 500; }
+  .hero h1 { font-family: 'Inter', sans-serif; font-size: 52px; font-weight: 700; line-height: 1.05; margin-bottom: 1.1rem; letter-spacing: -0.03em; }
+  .hero-sub { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 15px; color: var(--text-muted); max-width: 560px; margin-bottom: 2rem; line-height: 1.7; }
+  .hero-meta { display: flex; gap: 2rem; flex-wrap: wrap; margin-bottom: 2.25rem; }
+  .hero-meta-item { font-family: 'Inter', sans-serif; font-size: 12px; color: var(--text-hint); }
+  .hero-meta-item span { display: block; font-family: 'Inter', sans-serif; font-size: 22px; font-weight: 600; color: var(--text); margin-bottom: 1px; letter-spacing: -0.02em; }
+  .hero-links { display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center; }
+  .hero-link { font-family: 'Inter', sans-serif; font-size: 12px; padding: 7px 15px; border: 0.5px solid var(--border-strong); border-radius: 5px; color: var(--text); transition: background 0.15s; letter-spacing: 0.01em; }
+  .hero-link:hover { background: var(--accent-light); }
+  .hero-icon-link { width: 36px; height: 36px; border: 0.5px solid var(--border-strong); border-radius: 5px; display: flex; align-items: center; justify-content: center; color: var(--text); transition: background 0.15s; }
+  .hero-icon-link:hover { background: var(--accent-light); }
+  .hero-icon-link svg { width: 16px; height: 16px; }
+
+  .hero-photo { flex-shrink: 0; }
+  .photo-circle { width: 190px; height: 190px; border-radius: 50%; overflow: hidden; border: 0.5px solid var(--border-strong); background: var(--surface-2); display: flex; align-items: center; justify-content: center; }
+  .photo-circle img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+  .photo-initials { font-size: 32px; font-weight: 500; color: var(--text-hint); }
+  @media (max-width: 580px) { .hero { flex-direction: column-reverse; align-items: flex-start; padding-top: 3rem; } .photo-circle { width: 100px; height: 100px; } .hero h1 { font-size: 36px; } }
+
+  /* SECTION */
+  section { padding: 4rem 0; border-top: 0.5px solid var(--border); }
+  .section-label { font-family: 'Inter', sans-serif; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-hint); margin-bottom: 2rem; font-weight: 500; }
+  h2 { font-family: 'Inter', sans-serif; font-size: 28px; font-weight: 700; margin-bottom: 1.75rem; letter-spacing: -0.02em; }
+
+  /* EXPERIENCE */
+  .exp-card { border: 0.5px solid var(--border); border-radius: 10px; margin-bottom: 0.65rem; overflow: hidden; transition: border-color 0.15s; }
+  .exp-card:hover { border-color: var(--border-strong); }
+  .exp-card-header { display: flex; align-items: center; justify-content: space-between; padding: 1.25rem 1.5rem; cursor: pointer; user-select: none; gap: 1rem; }
+  .exp-card-left { display: flex; align-items: center; gap: 0.875rem; flex: 1; min-width: 0; }
+  .exp-dot { width: 56px; height: 56px; border-radius: 10px; background: var(--surface-2); border: 0.5px solid var(--border); display: flex; align-items: center; justify-content: center; font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 500; color: var(--text-hint); flex-shrink: 0; overflow: hidden; }
+  .exp-card-meta { min-width: 0; }
+  .exp-role { font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 600; }
+  .exp-company-date { font-family: 'Inter', sans-serif; font-size: 13px; color: var(--text-muted); margin-top: 3px; }
+  .exp-badge { display: inline-block; font-family: 'Inter', sans-serif; font-size: 10px; padding: 2px 7px; border-radius: 4px; background: var(--surface-2); border: 0.5px solid var(--border); color: var(--text-hint); margin-top: 4px; letter-spacing: 0.03em; }
+  .exp-chevron { width: 20px; height: 20px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; color: var(--text-hint); transition: transform 0.22s ease; }
+  .exp-chevron svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 2; }
+  .exp-card.open .exp-chevron { transform: rotate(180deg); }
+  .exp-card-body { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; padding: 0 1.25rem; }
+  .exp-card.open .exp-card-body { max-height: 600px; padding: 1rem 1.25rem 1.25rem; border-top: 0.5px solid var(--border); }
+  .exp-bullets { padding-left: 1.1rem; }
+  .exp-bullets li { font-family: 'Inter', sans-serif; font-size: 14px; color: var(--text-muted); margin-bottom: 0.55rem; line-height: 1.65; }
+  .exp-bullets li:last-child { margin-bottom: 0; }
+  .exp-group { margin-bottom: 1.25rem; }
+  .group-label { font-family: 'Inter', sans-serif; font-size: 12px; color: var(--text-hint); margin-bottom: 0.6rem; padding-left: 0.1rem; }
+  .divider { border: none; border-top: 0.5px solid var(--border); margin: 1.5rem 0; }
+
+  /* PROJECTS */
+  .project-group { margin-bottom: 2.75rem; }
+  .group-heading { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; color: var(--text-hint); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 0.5px solid var(--border); }
+  .projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  @media (max-width: 600px) { .projects-grid { grid-template-columns: 1fr; } }
+
+  .project-card { border: 0.5px solid var(--border); border-radius: 10px; overflow: hidden; background: var(--surface); display: flex; flex-direction: column; position: relative; cursor: pointer; transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s; }
+  .project-card:hover { border-color: var(--border-strong); transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.12); }
+
+  .project-img { width: 100%; aspect-ratio: 16/9; overflow: hidden; display: block; }
+  .project-img img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
+  .project-img-placeholder { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 7px; background: var(--surface-2); }
+  .placeholder-icon { width: 28px; height: 28px; border-radius: 6px; background: var(--tag-bg); display: flex; align-items: center; justify-content: center; }
+  .placeholder-icon svg { width: 14px; height: 14px; stroke: var(--text-hint); fill: none; stroke-width: 1.5; }
+  .project-body { padding: 1rem 1.1rem 1rem; flex: 1; display: flex; flex-direction: column; }
+  .project-title { font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600; margin-bottom: 0.35rem; }
+  .project-desc { font-family: 'Inter', sans-serif; font-size: 12px; color: var(--text-muted); line-height: 1.55; margin-bottom: 0.75rem; flex: 1; }
+  .project-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 0.6rem; }
+  .tag { font-family: 'Inter', sans-serif; font-size: 10px; padding: 2px 7px; background: var(--tag-bg); color: var(--tag-text); border-radius: 4px; }
+  .project-links { display: flex; gap: 1rem; }
+  .project-link { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 500; color: var(--text-hint); }
+  .project-link:hover { color: var(--text); }
+
+  /* HOVER POPUP */
+  .popup-backdrop {
+    display: none; position: fixed; inset: 0; z-index: 999;
+    background: rgba(0,0,0,0.0);
+    pointer-events: none;
+  }
+  .popup-backdrop.active {
+    display: flex; align-items: center; justify-content: center;
+    pointer-events: all;
+    background: rgba(0,0,0,0.52);
+    animation: fadeInBg 0.18s ease forwards;
+  }
+  @keyframes fadeInBg { from { background: rgba(0,0,0,0); } to { background: rgba(0,0,0,0.52); } }
+
+  .popup-card {
+    background: var(--surface);
+    border-radius: 16px;
+    border: 0.5px solid var(--border-strong);
+    display: flex;
+    width: min(960px, 92vw);
+    max-height: 88vh;
+    overflow: hidden;
+    animation: popIn 0.24s cubic-bezier(0.34,1.4,0.64,1) forwards;
+    pointer-events: all;
+  }
+  @keyframes popIn { from { opacity: 0; transform: scale(0.88); } to { opacity: 1; transform: scale(1); } }
+
+  .popup-img-side {
+    width: 58%; flex-shrink: 0; overflow: hidden;
+    background: #000;
+  }
+  .popup-img-side img { width: 100%; height: 100%; object-fit: contain; object-position: center; display: block; background: var(--surface-2); }
+
+  .popup-info-side {
+    flex: 1; padding: 2.25rem 2rem;
+    display: flex; flex-direction: column;
+    overflow-y: auto;
+  }
+  .popup-close {
+    align-self: flex-end; width: 30px; height: 30px;
+    border: 0.5px solid var(--border-strong); border-radius: 7px;
+    background: transparent; cursor: pointer; color: var(--text-muted);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 15px; margin-bottom: 1.5rem; flex-shrink: 0;
+    transition: background 0.15s, color 0.15s; font-family: 'Inter', sans-serif;
+  }
+  .popup-close:hover { background: var(--surface-2); color: var(--text); }
+  .popup-title { font-family: 'Inter', sans-serif; font-size: 20px; font-weight: 700; margin-bottom: 0.875rem; letter-spacing: -0.02em; color: var(--text); line-height: 1.25; }
+  .popup-desc { font-family: 'Inter', sans-serif; font-size: 13.5px; color: var(--text-muted); line-height: 1.72; margin-bottom: 1.5rem; }
+  .popup-bullets { padding-left: 1.2rem; margin-bottom: 1.5rem; }
+  .popup-bullets li { font-family: 'Inter', sans-serif; font-size: 13px; color: var(--text-muted); margin-bottom: 0.6rem; line-height: 1.65; }
+  .popup-bullets li:last-child { margin-bottom: 0; }
+  .popup-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 2rem; }
+  .popup-tag { font-family: 'Inter', sans-serif; font-size: 11px; padding: 4px 10px; background: var(--tag-bg); color: var(--tag-text); border-radius: 5px; }
+  .popup-links { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: auto; }
+  .popup-link { font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 500; padding: 9px 20px; border: 0.5px solid var(--border-strong); border-radius: 7px; color: var(--text); transition: background 0.15s; }
+  .popup-link:hover { background: var(--accent-light); text-decoration: none; }
+
+  @media (max-width: 640px) {
+    .popup-card { flex-direction: column; }
+    .popup-img-side { width: 100%; height: 220px; }
+  }
+
+  /* SKILLS */
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.75rem; }
+  .skill-group-title { font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 500; margin-bottom: 0.5rem; letter-spacing: 0.02em; }
+  .skill-list { font-family: 'Inter', sans-serif; font-size: 12px; color: var(--text-muted); line-height: 1.9; }
+
+  /* CERTS */
+  .certs-list { display: flex; flex-direction: column; gap: 0.65rem; }
+  .cert-item { display: flex; align-items: center; gap: 1.25rem; padding: 1.1rem 1.4rem; border: 0.5px solid var(--border); border-radius: 10px; transition: border-color 0.15s; }
+  .cert-item:hover { border-color: var(--border-strong); }
+  .cert-logo { width: 56px; height: 56px; border-radius: 10px; overflow: hidden; flex-shrink: 0; background: var(--surface-2); border: 0.5px solid var(--border); display: flex; align-items: center; justify-content: center; padding: 7px; }
+  .cert-logo img { width: 100%; height: 100%; object-fit: contain; }
+  .cert-info { flex: 1; min-width: 0; }
+  .cert-name { font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 600; }
+  .cert-meta { font-family: 'Inter', sans-serif; font-size: 13px; color: var(--text-muted); margin-top: 3px; }
+  .cert-link { font-family: 'Inter', sans-serif; font-size: 12px; color: var(--text-hint); border: 0.5px solid var(--border); border-radius: 5px; padding: 6px 13px; white-space: nowrap; transition: border-color 0.15s, color 0.15s; }
+  .cert-link:hover { color: var(--text); border-color: var(--border-strong); }
+
+  /* EDUCATION */
+  .edu-item { margin-bottom: 1.5rem; }
+  .edu-degree { font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 500; }
+  .edu-school { font-family: 'Inter', sans-serif; font-size: 13px; color: var(--text-muted); margin-top: 3px; }
+  .edu-gpa { font-family: 'Inter', sans-serif; font-size: 12px; color: var(--text-hint); margin-top: 3px; }
+
+  /* PUBLICATION */
+  .pub-item { padding: 1.1rem 1.25rem; border: 0.5px solid var(--border); border-radius: 9px; }
+  .pub-title { font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 500; margin-bottom: 0.35rem; }
+  .pub-meta { font-family: 'Inter', sans-serif; font-size: 12px; color: var(--text-muted); line-height: 1.6; }
+
+  /* FOOTER */
+  footer { border-top: 0.5px solid var(--border); padding: 2.5rem; text-align: center; }
+  .footer-name { font-family: 'Inter', sans-serif; font-size: 16px; margin-bottom: 0.75rem; }
+  .footer-links { display: flex; justify-content: center; gap: 1.25rem; margin-bottom: 1.5rem; }
+  .footer-links a { font-family: 'Inter', sans-serif; font-size: 12px; color: var(--text-muted); }
+  .footer-links a:hover { color: var(--text); }
+  .footer-copy { font-family: 'Inter', sans-serif; font-size: 11px; color: var(--text-hint); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-name">Ron Chaudhuri</div>
+  <div class="nav-links">
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#certifications">Certifications</a>
+    <a href="#education">Education</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-left">
+    <p class="hero-label">MS Business Analytics & AI · UT Dallas</p>
+    <h1>Ron Chaudhuri</h1>
+    <p class="hero-sub">MS in Business Analytics & AI from UT Dallas. 4+ years across data analytics, machine learning, and cloud engineering, spanning EXL Service, a TA role mentoring 250+ students, and an AI internship at ALTCloud.ai building agentic cloud migration tools. I build end-to-end systems: from fine-tuned LLMs and multi-agent platforms to BI dashboards and AWS-powered pipelines.</p>
+    <div class="hero-meta">
+      <div class="hero-meta-item"><span>4+</span>Years Experience</div>
+      <div class="hero-meta-item"><span>3.85</span>GPA at UTD</div>
+      <div class="hero-meta-item"><span>250+</span>Students Mentored</div>
+      <div class="hero-meta-item"><span>AWS</span>ML Associate</div>
+    </div>
+    <div class="hero-links">
+      <a class="hero-icon-link" href="https://www.linkedin.com/in/ron-chaudhuri/" target="_blank" title="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+      </a>
+      <a class="hero-icon-link" href="https://github.com/ronchaudhuri1998" target="_blank" title="GitHub">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+      </a>
+      <a class="hero-icon-link" href="mailto:ronchaudhuri29@gmail.com" title="Email">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      </a>
+      <a class="hero-link" href="tel:6824269172">682-426-9172</a>
+    </div>
+  </div>
+  <div class="hero-photo">
+    <div class="photo-circle">
+      <img src="images/profile.jpg" alt="Ron Chaudhuri"
+        onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+      <div class="photo-initials" style="display:none">RC</div>
+    </div>
+  </div>
+</div>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <p class="section-label">Experience</p>
+    <h2>Where I've worked</h2>
+
+    <div class="exp-group">
+      <div class="exp-card" onclick="toggle(this)">
+        <div class="exp-card-header">
+          <div class="exp-card-left">
+            <div class="exp-dot" style="padding:2px;background:#000;overflow:hidden;">
+              <img src="images/altcloud_logo.png" style="width:100%;height:100%;object-fit:contain;" onerror="this.parentElement.style.background='#0f172a';this.parentElement.innerHTML='<span style=\'color:#38bdf8;font-size:9px;font-weight:700\'>ALT</span>'">
+            </div>
+            <div class="exp-card-meta">
+              <div class="exp-role">Business Development Manager Intern</div>
+              <div class="exp-company-date">ALTCloud.ai · Feb 2026 – Present · Remote</div>
+              <div class="exp-badge">Internship</div>
+            </div>
+          </div>
+          <div class="exp-chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </div>
+        <div class="exp-card-body">
+          <ul class="exp-bullets">
+            <li>Led the development of Velocity24 by ALTCloud.ai, an agentic cloud migration assessment platform by implementing the core AI and pricing engine, integrating LLM APIs for narrative generation and cloud provider pricing APIs for real-time cost optimization enabling data-driven rightsizing and multi-scenario TCO analysis, reducing assessment delivery time from weeks to under 24 hours.</li>
+            <li>Coordinate with and manage an offshore team to track tasks, timelines, and deliverables across projects.</li>
+            <li>Assist in shaping cloud and GenAI use cases with a focus on business outcomes, cost awareness, and security best practices.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-group">
+      <div class="exp-card" onclick="toggle(this)">
+        <div class="exp-card-header">
+          <div class="exp-card-left">
+            <div class="exp-dot" style="padding:2px;background:#000;overflow:hidden;">
+              <img src="images/UT_Dallas_logo.png" style="width:100%;height:100%;object-fit:contain;" onerror="this.parentElement.innerHTML='UT'">
+            </div>
+            <div class="exp-card-meta">
+              <div class="exp-role">Graduate Teaching Assistant</div>
+              <div class="exp-company-date">University of Texas at Dallas · Aug 2025 – Dec 2025 · On-site</div>
+              <div class="exp-badge">Part-time</div>
+            </div>
+          </div>
+          <div class="exp-chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </div>
+        <div class="exp-card-body">
+          <ul class="exp-bullets">
+            <li>Mentored and supported 250+ graduate and undergraduate students across Applied AI & Machine Learning, Applied Machine Learning, Fundamentals of Programming, and AWS Cloud Analytics.</li>
+            <li>Assisted in lecture design, assignment development, and project oversight, ensuring students gain hands-on experience with real-world applications.</li>
+            <li>Provided academic guidance and one-on-one support by resolving doubts, reviewing submissions, and fostering a collaborative learning environment.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-group">
+      <div class="group-label">EXL Service · Full-time · 3 yrs 8 mos · Bengaluru, India</div>
+      <div class="exp-card" onclick="toggle(this)">
+        <div class="exp-card-header">
+          <div class="exp-card-left">
+            <div class="exp-dot" style="padding:4px;background:#fff;overflow:hidden;">
+              <img src="images/exl_logo.png" style="width:100%;height:100%;object-fit:contain;" onerror="this.parentElement.innerHTML='EX'">
+            </div>
+            <div class="exp-card-meta">
+              <div class="exp-role">Assistant Manager (Consultant 1)</div>
+              <div class="exp-company-date">EXL Service · Jul 2022 – Jun 2024 · 2 yrs</div>
+            </div>
+          </div>
+          <div class="exp-chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </div>
+        <div class="exp-card-body">
+          <ul class="exp-bullets">
+            <li>Led the design and implementation of 25+ dashboards on Power BI and Tableau for a leading American sports & retail client, resulting in a 30% increase in year-over-year customer engagement.</li>
+            <li>Streamlined Power BI dashboards with incremental refreshes, reducing data refresh times by 60% for timely access to critical metrics.</li>
+            <li>Built predictive models using machine learning techniques in PyTorch to forecast key metrics like customer retention, leading to a 15% improvement in retention rates.</li>
+            <li>Developed optimized SQL queries for large-scale data extraction from Snowflake and Azure Databricks, reducing data retrieval time by 30%, resulting in faster refresh cycles for front-end dashboards.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="exp-card" onclick="toggle(this)">
+        <div class="exp-card-header">
+          <div class="exp-card-left">
+            <div class="exp-dot" style="padding:4px;background:#fff;overflow:hidden;">
+              <img src="images/exl_logo.png" style="width:100%;height:100%;object-fit:contain;" onerror="this.parentElement.innerHTML='EX'">
+            </div>
+            <div class="exp-card-meta">
+              <div class="exp-role">Business Analyst</div>
+              <div class="exp-company-date">EXL Service · Nov 2020 – Jun 2022 · 1 yr 8 mos</div>
+            </div>
+          </div>
+          <div class="exp-chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </div>
+        <div class="exp-card-body">
+          <ul class="exp-bullets">
+            <li>Designed and developed 10+ Power BI dashboards tracking financial KPIs for an American financial services client, leading to a 15% increase in actionable insights for the risk management team.</li>
+            <li>Developed high-performance data models to efficiently handle data from Snowflake and Azure Databricks into Power BI dashboards, reducing load times by 30% for reports with millions of records.</li>
+            <li>Extracted and processed data from Azure Databricks using Python and PySpark to enable real-time insights for client stakeholders.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-group">
+      <div class="exp-card" onclick="toggle(this)">
+        <div class="exp-card-header">
+          <div class="exp-card-left">
+            <div class="exp-dot">VE</div>
+            <div class="exp-card-meta">
+              <div class="exp-role">Intern — Embedded Systems Engineer</div>
+              <div class="exp-company-date">Vitvaraa Electronics Private Limited · May 2019 – Jun 2019</div>
+              <div class="exp-badge">Internship</div>
+            </div>
+          </div>
+          <div class="exp-chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </div>
+        <div class="exp-card-body">
+          <ul class="exp-bullets">
+            <li>Designed and developed a user interface for the dashboard of an electric scooter, displaying battery percentage, date/time, and temperature/humidity, resulting in an improved user experience.</li>
+            <li>Observed the implementation of the CAN protocol in an electric scooter, gaining hands-on experience with this critical communication protocol for automotive and industrial applications.</li>
+            <li>Demonstrated proficiency in PCB designing, contributing to the successful design and development of electronic circuits for the company's products.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <p class="section-label">Projects</p>
+    <h2>Things I've built</h2>
+
+    <!-- Group 1 -->
+    <div class="project-group">
+      <div class="group-heading">AI Agents & Cloud Systems</div>
+      <div class="projects-grid">
+
+        <div class="project-card has-img" onclick="openPopup('images/careerspark.png','UTD CareerSpark',['Built an intelligent multi-agent recommendation system using AWS Bedrock AgentCore, FastAPI, and React to deliver personalized, real-time career recommendations for UT Dallas students.', 'Integrated job-market analytics, course data, and AI-driven planning agents to provide adaptive learning paths and project suggestions.', 'Deployed end-to-end on AWS App Runner and Amplify, leveraging Lambda, Secrets Manager, and persistent memory for continuous, context-aware guidance.'],'AWS Bedrock,FastAPI,React,Multi-agent','GitHub ↗|https://github.com/ronchaudhuri1998/utd-career-spark')">
+          <div class="project-img">
+            <img src="images/careerspark.png" alt="UTD CareerSpark" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="project-img-placeholder" style="display:none"><div class="placeholder-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div></div>
+          </div>
+          <div class="project-body">
+            <div class="project-title">UTD CareerSpark</div>
+            <div class="project-desc">Intelligent multi-agent career recommendation system for UT Dallas students — integrates job-market analytics, course data, and adaptive learning paths deployed on AWS App Runner and Amplify.</div>
+            <div class="project-tags"><span class="tag">AWS Bedrock</span><span class="tag">FastAPI</span><span class="tag">React</span><span class="tag">Multi-agent</span></div>
+            <div class="project-links"><a class="project-link" href="https://github.com/ronchaudhuri1998/utd-career-spark" target="_blank" onclick="event.stopPropagation()">GitHub ↗</a></div>
+          </div>
+        </div>
+
+        <div class="project-card has-img" onclick="openPopup('images/document-management.png','AI-Powered Smart Document Management',['Designed and implemented an end-to-end Smart Document Management System to ingest, process, validate, and monitor enterprise documents (POs, Invoices, Service Agreements, RFPs) using Amazon Textract for OCR and structured document intelligence pipelines.', 'Built an LLM-powered document assistant using AWS Bedrock Agents with Claude 3.5 Haiku and RAG to enable conversational querying, PO lookups, contract summaries, and document-level insights over unstructured PDFs.', 'Developed a real-time operations dashboard to track document inventory, MSA-based grouping, invoice utilization, exceptions, and alerts, providing end-to-end visibility into finance and operations workflows.'],'AWS Bedrock,Textract,RAG,Next.js','GitHub ↗|https://github.com/ronchaudhuri1998/emb-global-smart-dms')">
+          <div class="project-img">
+            <img src="images/document-management.png" alt="Smart Document Management" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="project-img-placeholder" style="display:none"><div class="placeholder-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div></div>
+          </div>
+          <div class="project-body">
+            <div class="project-title">AI-Powered Smart Document Management</div>
+            <div class="project-desc">End-to-end document pipeline using Amazon Textract for OCR and AWS Bedrock + Claude 3.5 Haiku with RAG for conversational querying of POs, invoices, and contracts.</div>
+            <div class="project-tags"><span class="tag">AWS Bedrock</span><span class="tag">Textract</span><span class="tag">RAG</span><span class="tag">Next.js</span></div>
+            <div class="project-links"><a class="project-link" href="https://github.com/ronchaudhuri1998/emb-global-smart-dms" target="_blank" onclick="event.stopPropagation()">GitHub ↗</a></div>
+          </div>
+        </div>
+
+        <div class="project-card has-img" onclick="openPopup('images/email-automation.png','Automated Email Classification & Routing','n8n pipeline with GPT-4o-mini to classify and route incoming emails to Slack channels by category. Full MySQL logging for traceability and workflow observability.','n8n,OpenAI,MySQL,Slack','GitHub ↗|https://github.com/ronchaudhuri1998/Email_Classification_and_Routing')">
+          <div class="project-img">
+            <img src="images/email-automation.png" alt="Email Automation" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="project-img-placeholder" style="display:none"><div class="placeholder-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div></div>
+          </div>
+          <div class="project-body">
+            <div class="project-title">Automated Email Classification &amp; Routing</div>
+            <div class="project-desc">n8n pipeline with GPT-4o-mini to classify and route incoming emails to Slack channels by category. Full MySQL logging for traceability and workflow observability.</div>
+            <div class="project-tags"><span class="tag">n8n</span><span class="tag">OpenAI</span><span class="tag">MySQL</span><span class="tag">Slack</span></div>
+            <div class="project-links"><a class="project-link" href="https://github.com/ronchaudhuri1998/Email_Classification_and_Routing" target="_blank" onclick="event.stopPropagation()">GitHub ↗</a></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Group 2 -->
+    <div class="project-group">
+      <div class="group-heading">NLP & LLM Fine-Tuning</div>
+      <div class="projects-grid">
+
+        <div class="project-card" style="cursor:pointer" onclick="openPopup(null,'Fine-Tuning LLMs — Subreddit Rule Compliance',['Fine-tuned Gemma-2 (2B) decoder LLM using LoRA (4-bit quantization) to classify whether Reddit comments comply with or violate subreddit rules.', 'Applied instruction-tuned and classification-head approaches with PyTorch, Hugging Face TRL, and PEFT, achieving an F1-score of 0.84 and improved contextual understanding.', 'Optimized training using gradient checkpointing, BF16 precision, BitsAndBytes, and tracked experiments through Weights & Biases (W&B).'],'PyTorch,HuggingFace,LoRA,PEFT','GitHub ↗|https://github.com/ronchaudhuri1998/llm-subreddit-rule-compliance')">
+          <div class="project-body">
+            <div class="project-title">Fine-Tuning LLMs — Subreddit Rule Compliance</div>
+            <div class="project-desc">Fine-tuned Gemma-2 (2B) with LoRA 4-bit quantization to classify Reddit comment rule compliance. Achieved F1 of 0.84 using gradient checkpointing and BF16 precision, tracked via W&B.</div>
+            <div class="project-tags"><span class="tag">PyTorch</span><span class="tag">HuggingFace</span><span class="tag">LoRA</span><span class="tag">PEFT</span></div>
+            <div class="project-links"><a class="project-link" href="https://github.com/ronchaudhuri1998/llm-subreddit-rule-compliance" target="_blank">GitHub ↗</a></div>
+          </div>
+        </div>
+
+        <div class="project-card" style="cursor:pointer" onclick="openPopup(null,'ModernBERT Multilabel Emotion Detection',['Built an end-to-end Hugging Face pipeline over 7,724 tweets: created multilabel targets for 11 emotions, tokenized with ModernBERT-base, and logged experiments/checkpoints with best-model selection.', 'Fine-tuned with multilabel BCEWithLogitsLoss and per-class pos_weight to address class imbalance, tuned per-class decision thresholds on validation to maximize macro-F1.', 'Resulted in a strong baseline with a 0.72 macro-F1 on validation using the tuned thresholds.'],'ModernBERT,HuggingFace,BCELoss,NLP','GitHub ↗|https://github.com/ronchaudhuri1998/ModernBERT-based-Multilabel-Emotion-Detection-on-Tweets-')">
+          <div class="project-body">
+            <div class="project-title">ModernBERT Multilabel Emotion Detection</div>
+            <div class="project-desc">Fine-tuned ModernBERT-base over 7,724 tweets to detect 11 emotions simultaneously. Per-class threshold tuning on validation set achieved 0.72 macro-F1.</div>
+            <div class="project-tags"><span class="tag">ModernBERT</span><span class="tag">HuggingFace</span><span class="tag">BCELoss</span><span class="tag">NLP</span></div>
+            <div class="project-links"><a class="project-link" href="https://github.com/ronchaudhuri1998/ModernBERT-based-Multilabel-Emotion-Detection-on-Tweets-" target="_blank">GitHub ↗</a></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Group 3 -->
+    <div class="project-group">
+      <div class="group-heading">Predictive Modeling & Machine Learning</div>
+      <div class="projects-grid">
+
+        <div class="project-card" style="cursor:pointer" onclick="openPopup(null,'Food Delivery ETA Prediction',['Engineered a comprehensive feature pipeline (geodesic distance, order-to-pickup time, cyclical hour/weekday, weather/traffic/festival flags) with imputation and encoding to prepare data for modeling.', 'Benchmarked six regressors (KNN, Decision Tree, Random Forest, XGBoost, SVR, MLP) via RandomizedSearchCV and HalvingRandomSearchCV; XGBoost led with R²=0.832 (RMSE 3.84 min) and a stacked SVR+MLP ensemble achieved R²=0.803 (RMSE 4.12 min).', 'Extracted key delivery-time drivers (multiple orders, driver ratings, traffic density, weather) from feature-importance analyses and formulated targeted operational recommendations for peak and festival scenarios.'],'XGBoost,Scikit-learn,Feature Eng.','GitHub ↗|https://github.com/ronchaudhuri1998/Food_Delivery_ETA_Prediction')">
+          <div class="project-body">
+            <div class="project-title">Food Delivery ETA Prediction</div>
+            <div class="project-desc">Benchmarked 6 regressors; XGBoost led with R²=0.832 and RMSE=3.84 min. Feature-engineered geodesic distance, cyclical time encoding, traffic and weather flags.</div>
+            <div class="project-tags"><span class="tag">XGBoost</span><span class="tag">Scikit-learn</span><span class="tag">Feature Eng.</span></div>
+            <div class="project-links"><a class="project-link" href="https://github.com/ronchaudhuri1998/Food_Delivery_ETA_Prediction" target="_blank">GitHub ↗</a></div>
+          </div>
+        </div>
+
+        <div class="project-card" style="cursor:pointer" onclick="openPopup(null,'Customer Churn Prediction',['Built a Deep Learning Model for Customer Churn Prediction using TensorFlow and Keras, applying feature engineering (scaling, one-hot encoding) on structured financial data.', 'Implemented Hyperparameter Optimization using Random Search, Bayesian Optimization, and Hyperband to fine-tune model architecture; Hyperband outperformed others by minimizing loss and reducing training time by 50%.', 'Leveraged key Deep Learning concepts such as activation functions (ReLU, Tanh, Sigmoid), Binary Cross-entropy loss, and Adam optimizer to enhance performance.'],'TensorFlow,Keras,Hyperband','GitHub ↗|https://github.com/ronchaudhuri1998/Customer_Churn_Prediction_Using_Keras_Tensorflow')">
+          <div class="project-body">
+            <div class="project-title">Customer Churn Prediction</div>
+            <div class="project-desc">TensorFlow/Keras deep learning model with Hyperband optimization, cutting training time by 50% vs. Random Search and Bayesian methods on structured financial data.</div>
+            <div class="project-tags"><span class="tag">TensorFlow</span><span class="tag">Keras</span><span class="tag">Hyperband</span></div>
+            <div class="project-links"><a class="project-link" href="https://github.com/ronchaudhuri1998/Customer_Churn_Prediction_Using_Keras_Tensorflow" target="_blank">GitHub ↗</a></div>
+          </div>
+        </div>
+
+        <div class="project-card" style="cursor:pointer" onclick="openPopup(null,'Loan Approval Prediction',['Implemented a Keras Sequential classifier (64 to 32 neurons, dropout, early stopping) with one-hot encoding, Min-Max scaling, stratified splits, and class weights; hyperparameter-tuned via Keras Tuner (Random Search, Bayesian, Hyperband) to achieve 92.08% accuracy.', 'Integrated LIME to generate simple, per-application explanations that highlight exactly which inputs drove each approval or rejection, making model decisions transparent to non-technical stakeholders.'],'Keras,LIME,XAI,Keras Tuner','GitHub ↗|https://github.com/ronchaudhuri1998/Loan_Approval_Classification')">
+          <div class="project-body">
+            <div class="project-title">Loan Approval Prediction</div>
+            <div class="project-desc">Keras sequential classifier with Keras Tuner achieving 92.08% accuracy. Integrated LIME explainability to surface per-application decision drivers for non-technical stakeholders.</div>
+            <div class="project-tags"><span class="tag">Keras</span><span class="tag">LIME</span><span class="tag">XAI</span><span class="tag">Keras Tuner</span></div>
+            <div class="project-links"><a class="project-link" href="https://github.com/ronchaudhuri1998/Loan_Approval_Classification" target="_blank">GitHub ↗</a></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Group 4 -->
+    <div class="project-group">
+      <div class="group-heading">Analytics & Data Engineering</div>
+      <div class="projects-grid">
+
+        <div class="project-card has-img" onclick="openPopup('images/supply-chain.png','Retail Supply Chain Analytics Dashboard','Power BI dashboard for FreshNest Market with ribbon charts, decomposition trees, and freight cost analysis. Identifies key shipping delay drivers across the supply chain.','Power BI,Excel,Analytics','Dashboard ↗|https://app.powerbi.com/view?r=eyJrIjoiNjg0NGRhNmItZGFlZS00ZTE1LTk5Y2UtNGYyYjcxMzcxMzU1IiwidCI6IjhkMjgxZDFkLTljNGQtNGJmNy1iMTZlLTAzMmQxNWRlOWY2YyIsImMiOjN9')">
+          <div class="project-img">
+            <img src="images/supply-chain.png" alt="Retail Supply Chain Dashboard" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="project-img-placeholder" style="display:none"><div class="placeholder-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div></div>
+          </div>
+          <div class="project-body">
+            <div class="project-title">Retail Supply Chain Analytics Dashboard</div>
+            <div class="project-desc">Power BI dashboard for FreshNest Market with ribbon charts, decomposition trees, and freight cost analysis. Identifies key shipping delay drivers across the supply chain.</div>
+            <div class="project-tags"><span class="tag">Power BI</span><span class="tag">Excel</span><span class="tag">Analytics</span></div>
+            <div class="project-links"><a class="project-link" href="https://app.powerbi.com/view?r=eyJrIjoiNjg0NGRhNmItZGFlZS00ZTE1LTk5Y2UtNGYyYjcxMzcxMzU1IiwidCI6IjhkMjgxZDFkLTljNGQtNGJmNy1iMTZlLTAzMmQxNWRlOWY2YyIsImMiOjN9" target="_blank" onclick="event.stopPropagation()">Dashboard ↗</a></div>
+          </div>
+        </div>
+
+        <div class="project-card" style="cursor:pointer" onclick="openPopup(null,'Hospital Management System',['Designed and implemented a comprehensive database system for managing critical hospital operations, including patient records, doctor assignments, appointment scheduling, and billing processes.', 'Utilized PostgreSQL for database modeling and implementation, ensuring efficient data storage by normalizing the schema to Third Normal Form (3NF) to minimize redundancy and optimize performance.', 'Implemented advanced SQL features such as triggers, views, and stored procedures to automate processes like billing generation and ensure secure data management.'],'PostgreSQL,SQL,3NF','GitHub ↗|https://github.com/ronchaudhuri1998/Hospital_Management_System')">
+          <div class="project-body">
+            <div class="project-title">Hospital Management System</div>
+            <div class="project-desc">PostgreSQL database with 3NF schema, triggers, views, and stored procedures for patient records, billing generation, appointment scheduling, and secure data management.</div>
+            <div class="project-tags"><span class="tag">PostgreSQL</span><span class="tag">SQL</span><span class="tag">3NF</span></div>
+            <div class="project-links"><a class="project-link" href="https://github.com/ronchaudhuri1998/Hospital_Management_System" target="_blank">GitHub ↗</a></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <p class="section-label">Skills</p>
+    <h2>How I build</h2>
+    <div class="skills-grid">
+      <div>
+        <div class="skill-group-title">Languages</div>
+        <div class="skill-list">Python · R · SQL · Bash</div>
+      </div>
+      <div>
+        <div class="skill-group-title">ML & AI</div>
+        <div class="skill-list">TensorFlow · PyTorch · Keras · Scikit-learn · HuggingFace · LangChain · Fine-tuning LLMs · RAG · PEFT · AI Agents · Prompt Engineering</div>
+      </div>
+      <div>
+        <div class="skill-group-title">Cloud & Data Eng</div>
+        <div class="skill-list">AWS Bedrock · AWS S3 · Amplify · App Runner · Amazon SageMaker · AWS Lambda · Amazon Textract · Snowflake · PySpark · Hadoop · Azure · MySQL · n8n</div>
+      </div>
+      <div>
+        <div class="skill-group-title">Analytics & BI</div>
+        <div class="skill-list">Power BI · Tableau · Pandas · NumPy · Weights & Biases</div>
+      </div>
+      <div>
+        <div class="skill-group-title">Engineering</div>
+        <div class="skill-list">Python · JavaScript & React · SQL & Database Design · REST APIs · HTML/CSS</div>
+      </div>
+      <div>
+        <div class="skill-group-title">Tools & Platforms</div>
+        <div class="skill-list">Claude Code & Agent.ai · API Integration · GitHub Pages · Lovable & Supabase · Payment Integration</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="container">
+    <p class="section-label">Certifications</p>
+    <h2>Credentials</h2>
+    <div class="certs-list">
+
+      <div class="cert-item">
+        <div class="cert-logo">
+          <img src="images/aws-logo.png" alt="AWS"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div style="display:none;font-family:sans-serif;font-size:10px;font-weight:500;color:var(--text-hint)">AWS</div>
+        </div>
+        <div class="cert-info">
+          <div class="cert-name">AWS Certified Machine Learning Engineer – Associate</div>
+          <div class="cert-meta">Amazon Web Services · Aug 2025 – Aug 2028</div>
+        </div>
+        <a class="cert-link" href="https://www.credly.com/badges/adce4366-ed4d-4950-908c-a1d780b5c171/linked_in_profile" target="_blank">View ↗</a>
+      </div>
+
+      <div class="cert-item">
+        <div class="cert-logo">
+          <img src="images/aws-logo.png" alt="AWS"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div style="display:none;font-family:sans-serif;font-size:10px;font-weight:500;color:var(--text-hint)">AWS</div>
+        </div>
+        <div class="cert-info">
+          <div class="cert-name">AWS Knowledge: Migration Foundations – Badge</div>
+          <div class="cert-meta">Amazon Web Services · Issued Mar 2026</div>
+        </div>
+        <a class="cert-link" href="https://www.credly.com/badges/1e032d46-06c9-4bf9-97a2-890aa7e41beb/linked_in_profile" target="_blank">View ↗</a>
+      </div>
+
+      <div class="cert-item">
+        <div class="cert-logo">
+          <img src="images/IBM_logo.png" alt="IBM"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div style="display:none;font-family:sans-serif;font-size:10px;font-weight:500;color:var(--text-hint)">IBM</div>
+        </div>
+        <div class="cert-info">
+          <div class="cert-name">Introduction to Neural Networks and PyTorch</div>
+          <div class="cert-meta">IBM · Jan 21, 2025</div>
+        </div>
+        <a class="cert-link" href="https://www.coursera.org/account/accomplishments/verify/7JC6V1CNNQZP" target="_blank">View ↗</a>
+      </div>
+
+      <div class="cert-item">
+        <div class="cert-logo">
+          <img src="images/aws-logo.png" alt="AWS"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div style="display:none;font-family:sans-serif;font-size:10px;font-weight:500;color:var(--text-hint)">AWS</div>
+        </div>
+        <div class="cert-info">
+          <div class="cert-name">Introduction to Machine Learning on AWS</div>
+          <div class="cert-meta">Amazon Web Services · Feb 25, 2025</div>
+        </div>
+        <a class="cert-link" href="https://www.coursera.org/account/accomplishments/verify/BNBOQ43Q9ZT6" target="_blank">View ↗</a>
+      </div>
+
+      <div class="cert-item">
+        <div class="cert-logo">
+          <img src="images/IBM_logo.png" alt="IBM"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div style="display:none;font-family:sans-serif;font-size:10px;font-weight:500;color:var(--text-hint)">IBM</div>
+        </div>
+        <div class="cert-info">
+          <div class="cert-name">Python for Data Science, AI & Development</div>
+          <div class="cert-meta">IBM · May 28, 2019</div>
+        </div>
+        <a class="cert-link" href="https://drive.google.com/file/d/1TNpmTi3cy3RroFxiY7KBeJ5dwqXiijR_/view?usp=drive_link" target="_blank">View ↗</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="container">
+    <p class="section-label">Education</p>
+    <h2>Academic background</h2>
+    <div class="edu-item">
+      <div class="edu-degree">M.S. Business Analytics and Artificial Intelligence</div>
+      <div class="edu-school">University of Texas at Dallas · Richardson, TX</div>
+      <div class="edu-gpa">GPA: 3.85 · Aug 2024 – May 2026</div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-degree">B.Tech. Electronics & Communication Engineering</div>
+      <div class="edu-school">Manipal Institute of Technology · India</div>
+      <div class="edu-gpa">GPA: 3.62 · Sep 2016 – Aug 2020</div>
+    </div>
+
+    <p class="section-label" style="margin-top:2.5rem">Research</p>
+    <h2>Publication</h2>
+    <div class="pub-item">
+      <div class="pub-title">A Vision-Based GPS-Aided Quadcopter for Emergency Vehicle Navigation</div>
+      <div class="pub-meta">CISCON 2020 · Implemented a Fully Convolutional Network for real-time road detection to guide quadcopters through dense traffic for emergency vehicle assistance.</div>
+      <div style="margin-top:0.75rem">
+        <a class="project-link" href="https://link.springer.com/chapter/10.1007/978-981-16-0336-5_32" target="_blank" style="font-size:12px;font-family:'Roboto',sans-serif;color:var(--text-hint)">View Publication ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-name">Ron Chaudhuri</div>
+  <div class="footer-links">
+    <a href="https://www.linkedin.com/in/ron-chaudhuri/" target="_blank">LinkedIn</a>
+    <a href="https://github.com/ronchaudhuri" target="_blank">GitHub</a>
+    <a href="mailto:ronchaudhuri29@gmail.com">Email</a>
+    <a href="tel:6824269172">682-426-9172</a>
+  </div>
+  <div class="footer-copy">© 2026 Ron Chaudhuri · Richardson, Texas</div>
+</footer>
+
+<!-- PROJECT POPUP -->
+<div class="popup-backdrop" id="projectPopup">
+  <div class="popup-card" id="popupCard">
+    <div class="popup-img-side" id="popupImgSide">
+      <img id="popupImg" src="" alt="">
+    </div>
+    <div class="popup-info-side">
+      <button class="popup-close" onclick="closePopup()">✕</button>
+      <div class="popup-title" id="popupTitle"></div>
+      <div class="popup-desc" id="popupDesc"></div>
+      <ul class="popup-bullets" id="popupBullets"></ul>
+      <div class="popup-tags" id="popupTags"></div>
+      <div class="popup-links" id="popupLinks"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+function toggle(card) { card.classList.toggle('open'); }
+
+function openPopup(img, title, bullets, tags, links) {
+  var imgSide = document.getElementById('popupImgSide');
+  if (img) { document.getElementById('popupImg').src = img; imgSide.style.display = ''; }
+  else { imgSide.style.display = 'none'; }
+  document.getElementById('popupTitle').textContent = title;
+  var descEl = document.getElementById('popupDesc');
+  var bulletsEl = document.getElementById('popupBullets');
+  descEl.innerHTML = ''; bulletsEl.innerHTML = '';
+  if (Array.isArray(bullets)) {
+    bullets.forEach(function(b) {
+      var li = document.createElement('li'); li.textContent = b; bulletsEl.appendChild(li);
+    });
+  } else {
+    descEl.textContent = bullets;
+  }
+  var tagsEl = document.getElementById('popupTags'); tagsEl.innerHTML = '';
+  tags.split(',').forEach(function(t) {
+    var s = document.createElement('span'); s.className = 'popup-tag'; s.textContent = t.trim(); tagsEl.appendChild(s);
+  });
+  var linksEl = document.getElementById('popupLinks'); linksEl.innerHTML = '';
+  links.split(';').forEach(function(l) {
+    var parts = l.split('|');
+    if (parts.length === 2) {
+      var a = document.createElement('a'); a.className = 'popup-link';
+      a.textContent = parts[0].trim(); a.href = parts[1].trim(); a.target = '_blank';
+      a.onclick = function(e) { e.stopPropagation(); }; linksEl.appendChild(a);
+    }
+  });
+  document.getElementById('projectPopup').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closePopup() {
+  document.getElementById('projectPopup').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closePopup(); });
+document.getElementById('projectPopup').addEventListener('click', function(e) { if (e.target === this) closePopup(); });
+</script>
+
+</body>
+</html>
