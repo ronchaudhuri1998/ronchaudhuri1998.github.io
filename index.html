@@ -476,11 +476,11 @@
       <div class="group-heading">Predictive Modeling & Machine Learning</div>
       <div class="projects-grid">
 
-        <div class="project-card" style="cursor:pointer" onclick="openPopup(null,'Food Delivery ETA Prediction',['Engineered a comprehensive feature pipeline (geodesic distance, order-to-pickup time, cyclical hour/weekday, weather/traffic/festival flags) with imputation and encoding to prepare data for modeling.', 'Benchmarked six regressors (KNN, Decision Tree, Random Forest, XGBoost, SVR, MLP) via RandomizedSearchCV and HalvingRandomSearchCV; XGBoost led with R²=0.832 (RMSE 3.84 min) and a stacked SVR+MLP ensemble achieved R²=0.803 (RMSE 4.12 min).', 'Extracted key delivery-time drivers (multiple orders, driver ratings, traffic density, weather) from feature-importance analyses and formulated targeted operational recommendations for peak and festival scenarios.'],'XGBoost,Scikit-learn,Feature Eng.','GitHub ↗|https://github.com/ronchaudhuri1998/Food_Delivery_ETA_Prediction')">
+        <div class="project-card" style="cursor:pointer" onclick="openPopup(null,'Food Delivery ETA Prediction',['Engineered a comprehensive feature pipeline (geodesic distance, order-to-pickup time, cyclical hour/weekday, weather/traffic/festival flags) with imputation and encoding to prepare data for modeling.', 'Benchmarked six regressors (KNN, Decision Tree, Random Forest, XGBoost, SVR, MLP) via RandomizedSearchCV and HalvingRandomSearchCV; XGBoost led with R²=0.832 (RMSE 3.84 min) and a stacked SVR+MLP ensemble achieved R²=0.803 (RMSE 4.12 min).', 'Extracted key delivery-time drivers (multiple orders, driver ratings, traffic density, weather) from feature-importance analyses and formulated targeted operational recommendations for peak and festival scenarios.'],'XGBoost,KNN,Decision Tree,Random Forest,SVR,MLP,Scikit-learn','GitHub ↗|https://github.com/ronchaudhuri1998/Food_Delivery_ETA_Prediction')">
           <div class="project-body">
             <div class="project-title">Food Delivery ETA Prediction</div>
             <div class="project-desc">Benchmarked 6 regressors; XGBoost led with R²=0.832 and RMSE=3.84 min. Feature-engineered geodesic distance, cyclical time encoding, traffic and weather flags.</div>
-            <div class="project-tags"><span class="tag">XGBoost</span><span class="tag">Scikit-learn</span><span class="tag">Feature Eng.</span></div>
+            <div class="project-tags"><span class="tag">XGBoost</span><span class="tag">KNN</span><span class="tag">Decision Tree</span><span class="tag">Random Forest</span><span class="tag">SVR</span><span class="tag">MLP</span><span class="tag">Scikit-learn</span></div>
             <div class="project-links"><a class="project-link" href="https://github.com/ronchaudhuri1998/Food_Delivery_ETA_Prediction" target="_blank">GitHub ↗</a></div>
           </div>
         </div>
@@ -511,7 +511,7 @@
       <div class="group-heading">Analytics & Data Engineering</div>
       <div class="projects-grid">
 
-        <div class="project-card has-img" onclick="openPopup('images/supply-chain.png','Retail Supply Chain Analytics Dashboard','Power BI dashboard for FreshNest Market with ribbon charts, decomposition trees, and freight cost analysis. Identifies key shipping delay drivers across the supply chain.','Power BI,Excel,Analytics','Dashboard ↗|https://app.powerbi.com/view?r=eyJrIjoiNjg0NGRhNmItZGFlZS00ZTE1LTk5Y2UtNGYyYjcxMzcxMzU1IiwidCI6IjhkMjgxZDFkLTljNGQtNGJmNy1iMTZlLTAzMmQxNWRlOWY2YyIsImMiOjN9')">
+        <div class="project-card has-img" onclick="openPopup('images/supply-chain.png','Retail Supply Chain Analytics Dashboard','Power BI dashboard for FreshNest Market with ribbon charts, decomposition trees, and freight cost analysis. Identifies key shipping delay drivers across the supply chain.','Power BI,DAX,Excel,Analytics','Dashboard ↗|https://app.powerbi.com/view?r=eyJrIjoiNjg0NGRhNmItZGFlZS00ZTE1LTk5Y2UtNGYyYjcxMzcxMzU1IiwidCI6IjhkMjgxZDFkLTljNGQtNGJmNy1iMTZlLTAzMmQxNWRlOWY2YyIsImMiOjN9')">
           <div class="project-img">
             <img src="images/supply-chain.png" alt="Retail Supply Chain Dashboard" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
             <div class="project-img-placeholder" style="display:none"><div class="placeholder-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div></div>
@@ -519,12 +519,16 @@
           <div class="project-body">
             <div class="project-title">Retail Supply Chain Analytics Dashboard</div>
             <div class="project-desc">Power BI dashboard for FreshNest Market with ribbon charts, decomposition trees, and freight cost analysis. Identifies key shipping delay drivers across the supply chain.</div>
-            <div class="project-tags"><span class="tag">Power BI</span><span class="tag">Excel</span><span class="tag">Analytics</span></div>
+            <div class="project-tags"><span class="tag">Power BI</span><span class="tag">DAX</span><span class="tag">Excel</span><span class="tag">Analytics</span></div>
             <div class="project-links"><a class="project-link" href="https://app.powerbi.com/view?r=eyJrIjoiNjg0NGRhNmItZGFlZS00ZTE1LTk5Y2UtNGYyYjcxMzcxMzU1IiwidCI6IjhkMjgxZDFkLTljNGQtNGJmNy1iMTZlLTAzMmQxNWRlOWY2YyIsImMiOjN9" target="_blank" onclick="event.stopPropagation()">Dashboard ↗</a></div>
           </div>
         </div>
 
-        <div class="project-card" style="cursor:pointer" onclick="openPopup(null,'Hospital Management System',['Designed and implemented a comprehensive database system for managing critical hospital operations, including patient records, doctor assignments, appointment scheduling, and billing processes.', 'Utilized PostgreSQL for database modeling and implementation, ensuring efficient data storage by normalizing the schema to Third Normal Form (3NF) to minimize redundancy and optimize performance.', 'Implemented advanced SQL features such as triggers, views, and stored procedures to automate processes like billing generation and ensure secure data management.'],'PostgreSQL,SQL,3NF','GitHub ↗|https://github.com/ronchaudhuri1998/Hospital_Management_System')">
+        <div class="project-card has-img" style="cursor:pointer" onclick="openPopup('images/hospital-management.png','Hospital Management System',['Designed and implemented a comprehensive database system for managing critical hospital operations, including patient records, doctor assignments, appointment scheduling, and billing processes.', 'Utilized PostgreSQL for database modeling and implementation, ensuring efficient data storage by normalizing the schema to Third Normal Form (3NF) to minimize redundancy and optimize performance.', 'Implemented advanced SQL features such as triggers, views, and stored procedures to automate processes like billing generation and ensure secure data management.'],'PostgreSQL,SQL,3NF','GitHub ↗|https://github.com/ronchaudhuri1998/Hospital_Management_System')">
+          <div class="project-img">
+            <img src="images/hospital-management.png" alt="Hospital Management System" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="project-img-placeholder" style="display:none"><div class="placeholder-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div></div>
+          </div>
           <div class="project-body">
             <div class="project-title">Hospital Management System</div>
             <div class="project-desc">PostgreSQL database with 3NF schema, triggers, views, and stored procedures for patient records, billing generation, appointment scheduling, and secure data management.</div>
