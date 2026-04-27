@@ -206,6 +206,30 @@
   .pub-title { font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 500; margin-bottom: 0.35rem; }
   .pub-meta { font-family: 'Inter', sans-serif; font-size: 12px; color: var(--text-muted); line-height: 1.6; }
 
+  /* RECOMMENDATIONS */
+  .rec-track-outer { overflow: hidden; position: relative; }
+  .rec-track { display: flex; gap: 1.25rem; transition: transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94); will-change: transform; }
+  .rec-card {
+    flex-shrink: 0; width: 340px;
+    border: 0.5px solid var(--border); border-radius: 12px;
+    padding: 1.75rem 1.5rem 1.5rem;
+    background: var(--surface);
+    display: flex; flex-direction: column; justify-content: space-between;
+    gap: 1.5rem;
+  }
+  .rec-quote { font-family: 'Inter', sans-serif; font-size: 13.5px; color: var(--text-muted); line-height: 1.75; flex: 1; }
+  .rec-person { display: flex; align-items: center; gap: 0.875rem; }
+  .rec-avatar { width: 44px; height: 44px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600; color: #fff; }
+  .rec-info { min-width: 0; }
+  .rec-name { font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600; color: var(--text); }
+  .rec-role { font-family: 'Inter', sans-serif; font-size: 12px; color: var(--text-hint); margin-top: 2px; }
+  .rec-nav { display: flex; align-items: center; gap: 0.75rem; margin-top: 1.5rem; }
+  .rec-btn { width: 38px; height: 38px; border-radius: 50%; border: 0.5px solid var(--border-strong); background: var(--surface); display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--text); transition: background 0.15s; font-size: 15px; }
+  .rec-btn:hover { background: var(--accent-light); }
+  .rec-dots { display: flex; align-items: center; gap: 6px; margin-left: 0.5rem; }
+  .rec-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--border-strong); transition: background 0.2s, transform 0.2s; cursor: pointer; }
+  .rec-dot.active { background: var(--text); transform: scale(1.3); }
+
   /* FOOTER */
   footer { border-top: 0.5px solid var(--border); padding: 2.5rem; text-align: center; }
   .footer-name { font-family: 'Inter', sans-serif; font-size: 16px; margin-bottom: 0.75rem; }
@@ -226,6 +250,7 @@
     <a href="#skills">Skills</a>
     <a href="#certifications">Certifications</a>
     <a href="#education">Education</a>
+    <a href="#recommendations">Recommendations</a>
   </div>
 </nav>
 
@@ -681,6 +706,70 @@
   </div>
 </section>
 
+<!-- RECOMMENDATIONS -->
+<section id="recommendations">
+  <div class="container">
+    <p class="section-label">Recommendations</p>
+    <h2>What people say</h2>
+
+    <div class="rec-track-outer">
+      <div class="rec-track" id="recTrack">
+
+        <div class="rec-card">
+          <div class="rec-quote">"Ron quickly distinguished himself as a genuine collaborator, contributing meaningfully to advanced development projects spanning large language models, machine learning pipelines, and AWS cloud data engineering. Ron's technical depth is genuinely impressive — he demonstrated expert-level fluency across the full ML lifecycle. What sets Ron apart is his exceptional ability to communicate complex ideas clearly. He mentored 200+ graduate students, and his explanations were always accessible. Ron is a rare technical talent with excellent communication skills that will be a great asset in fast-moving environments."</div>
+          <div class="rec-person">
+            <div class="rec-avatar" style="background:#4a7fc1;padding:0;overflow:hidden;">
+              <img src="images/Bradbury.jpg" alt="Judd Bradbury" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">
+            </div>
+            <div class="rec-info">
+              <div class="rec-name">Judd Bradbury</div>
+              <div class="rec-role">Clinical Assistant Professor · UT Dallas</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="rec-card">
+          <div class="rec-quote">"Ron developed and shipped several production-ready features across the stack — building data parsing pipelines for real-world client inventory files, implementing AWS cost modeling logic, and adding data visualization dashboards that made complex migration insights more accessible. What stood out most was his ability to navigate ambiguity. Beyond his technical contributions, Ron showed strong engineering judgment — he understood not just what to build, but why it mattered. Ron would be a strong addition to any team working on cloud, data platforms, or backend systems."</div>
+          <div class="rec-person">
+            <div class="rec-avatar" style="background:#3a9e7a;padding:0;overflow:hidden;">
+              <img src="images/Sumesh.jpg" alt="Sumesh Shenoy" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">
+            </div>
+            <div class="rec-info">
+              <div class="rec-name">Sumesh Shenoy</div>
+              <div class="rec-role">Co-Founder & CRO · ALTCloud.ai</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="rec-card">
+          <div class="rec-quote">"Ron is a rare talent who possesses an exceptional ability to turn complex technical challenges into streamlined solutions. During his time at ALTCloud, he demonstrated a work ethic and a builder's mindset that is truly second to none. Despite the short nature of his internship, Ron delivered immediate, tangible results. We were incredibly fortunate to have his technical depth on the team, and I cannot recommend him highly enough."</div>
+          <div class="rec-person">
+            <div class="rec-avatar" style="background:#9b6bbf;padding:0;overflow:hidden;">
+              <img src="images/Seshi.jpg" alt="Seshi Vanguru" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">
+            </div>
+            <div class="rec-info">
+              <div class="rec-name">Seshi Vanguru</div>
+              <div class="rec-role">CEO · ALTCloud.ai</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="rec-nav">
+      <button class="rec-btn" onclick="recSlide(-1)">←</button>
+      <button class="rec-btn" onclick="recSlide(1)">→</button>
+      <div class="rec-dots" id="recDots">
+        <div class="rec-dot active" onclick="recGo(0)"></div>
+        <div class="rec-dot" onclick="recGo(1)"></div>
+        <div class="rec-dot" onclick="recGo(2)"></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <!-- FOOTER -->
 <footer>
   <div class="footer-name">Ron Chaudhuri</div>
@@ -752,6 +841,16 @@ function closePopup() {
 
 document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closePopup(); });
 document.getElementById('projectPopup').addEventListener('click', function(e) { if (e.target === this) closePopup(); });
+
+var recIndex = 0;
+var recTotal = 3;
+function recUpdate() {
+  var cardW = 340 + 20;
+  document.getElementById('recTrack').style.transform = 'translateX(-' + (recIndex * cardW) + 'px)';
+  document.querySelectorAll('.rec-dot').forEach(function(d, i) { d.classList.toggle('active', i === recIndex); });
+}
+function recSlide(dir) { recIndex = Math.max(0, Math.min(recTotal - 1, recIndex + dir)); recUpdate(); }
+function recGo(i) { recIndex = i; recUpdate(); }
 </script>
 
 </body>
