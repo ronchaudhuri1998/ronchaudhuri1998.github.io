@@ -107,7 +107,10 @@
   .placeholder-icon { width: 28px; height: 28px; border-radius: 6px; background: var(--tag-bg); display: flex; align-items: center; justify-content: center; }
   .placeholder-icon svg { width: 14px; height: 14px; stroke: var(--text-hint); fill: none; stroke-width: 1.5; }
   .project-body { padding: 1rem 1.1rem 1rem; flex: 1; display: flex; flex-direction: column; }
-  .project-title { font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600; margin-bottom: 0.35rem; }
+  .project-title { font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600; margin-bottom: 0.35rem; display: flex; align-items: center; gap: 0.5rem; }
+  .live-badge { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 500; color: #ef4444; display: inline-flex; align-items: center; gap: 3px; flex-shrink: 0; }
+  .live-dot { width: 6px; height: 6px; border-radius: 50%; background: #ef4444; display: inline-block; animation: pulse-live 2s infinite; }
+  @keyframes pulse-live { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
   .project-desc { font-family: 'Inter', sans-serif; font-size: 12px; color: var(--text-muted); line-height: 1.55; margin-bottom: 0.75rem; flex: 1; }
   .project-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 0.6rem; }
   .tag { font-family: 'Inter', sans-serif; font-size: 10px; padding: 2px 7px; background: var(--tag-bg); color: var(--tag-text); border-radius: 4px; }
@@ -428,7 +431,21 @@
       <div class="group-heading">AI Agents & Cloud Systems</div>
       <div class="projects-grid">
 
-        <div class="project-card has-img" onclick="openPopup('images/careerspark.png','UTD CareerSpark',['Built an intelligent multi-agent recommendation system using AWS Bedrock AgentCore, FastAPI, and React to deliver personalized, real-time career recommendations for UT Dallas students.', 'Integrated job-market analytics, course data, and AI-driven planning agents to provide adaptive learning paths and project suggestions.', 'Deployed end-to-end on AWS App Runner and Amplify, leveraging Lambda, Secrets Manager, and persistent memory for continuous, context-aware guidance.'],'AWS Bedrock,FastAPI,React,Multi-agent','GitHub ↗|https://github.com/ronchaudhuri1998/utd-career-spark')">
+        <div class="project-card has-img" onclick="openPopup('images/sme-ai-advisor.png','SME AI Adoption Advisor',['Built an end-to-end AI strategy advisory tool using the Anthropic Claude Sonnet API (temperature=0 for deterministic outputs) that generates tailored Public, Hybrid, and Private AI deployment plans for SMEs across 6 industry verticals, with live cloud pricing data from AWS, GCP, Vast.ai, and RunPod APIs to produce accurate real-world cost estimates in every report.', 'Engineered a Python FastAPI backend handling Claude API orchestration, structured JSON schema validation, and ReportLab PDF generation with matplotlib charts, deployed on Railway — paired with a fully static HTML/CSS/JS dashboard featuring interactive plan tabs, SVG cost and timeline charts, AI routing decision tables, and KPI cards.', 'Developed a multi-sector questionnaire engine across Manufacturing, Healthcare, Retail, Financial Services, Telecommunications, and Logistics — generating AI adoption reports covering business problems, compliance, cost breakdowns, implementation roadmaps, and ROI projections with optional PDF export.'],'Claude API,FastAPI,Railway,GitHub Pages','GitHub ↗|https://github.com/ronchaudhuri1998/sme-ai-advisor;Live Demo ↗|https://ronchaudhuri1998.github.io/sme-ai-advisor/dashboard.html')">
+          <div class="project-img">
+            <img src="images/sme-ai-advisor.png" alt="SME AI Advisor" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="project-img-placeholder" style="display:none"><div class="placeholder-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div></div>
+          </div>
+          <div class="project-body">
+            <div class="project-title">SME AI Adoption Advisor <span class="live-badge"><span class="live-dot"></span> Live Demo</span></div>
+            <div class="project-desc">AI strategy advisory tool using Claude Sonnet API to generate tailored Public, Hybrid, and Private AI deployment plans for SMEs across 6 industries with live cloud pricing from AWS, GCP, and RunPod.</div>
+            <div class="project-tags"><span class="tag">Claude API</span><span class="tag">FastAPI</span><span class="tag">Railway</span><span class="tag">GitHub Pages</span></div>
+            <div class="project-links">
+              <a class="project-link" href="https://github.com/ronchaudhuri1998/sme-ai-advisor" target="_blank" onclick="event.stopPropagation()">GitHub ↗</a>
+              <a class="project-link" href="https://ronchaudhuri1998.github.io/sme-ai-advisor/dashboard.html" target="_blank" onclick="event.stopPropagation()">Live Demo ↗</a>
+            </div>
+          </div>
+        </div>['Built an intelligent multi-agent recommendation system using AWS Bedrock AgentCore, FastAPI, and React to deliver personalized, real-time career recommendations for UT Dallas students.', 'Integrated job-market analytics, course data, and AI-driven planning agents to provide adaptive learning paths and project suggestions.', 'Deployed end-to-end on AWS App Runner and Amplify, leveraging Lambda, Secrets Manager, and persistent memory for continuous, context-aware guidance.'],'AWS Bedrock,FastAPI,React,Multi-agent','GitHub ↗|https://github.com/ronchaudhuri1998/utd-career-spark')">
           <div class="project-img">
             <img src="images/careerspark.png" alt="UTD CareerSpark" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
             <div class="project-img-placeholder" style="display:none"><div class="placeholder-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div></div>
