@@ -428,59 +428,56 @@
 
     <!-- Group 1 -->
     <div class="project-group">
-      <div class="group-heading">AI Agents & Cloud Systems</div>
+      <div class="group-heading">AI Agents &amp; Cloud Systems</div>
       <div class="projects-grid">
 
-        <div class="project-card has-img" onclick="openPopup('images/sme-ai-advisor.png','SME AI Adoption Advisor',['Built an end-to-end AI strategy advisory tool using the Anthropic Claude Sonnet API (temperature=0 for deterministic outputs) that generates tailored Public, Hybrid, and Private AI deployment plans for SMEs across 6 industry verticals, with live cloud pricing data from AWS, GCP, Vast.ai, and RunPod APIs to produce accurate real-world cost estimates in every report.', 'Engineered a Python FastAPI backend handling Claude API orchestration, structured JSON schema validation, and ReportLab PDF generation with matplotlib charts, deployed on Railway — paired with a fully static HTML/CSS/JS dashboard featuring interactive plan tabs, SVG cost and timeline charts, AI routing decision tables, and KPI cards.', 'Developed a multi-sector questionnaire engine across Manufacturing, Healthcare, Retail, Financial Services, Telecommunications, and Logistics — generating AI adoption reports covering business problems, compliance, cost breakdowns, implementation roadmaps, and ROI projections with optional PDF export.'],'Claude API,FastAPI,Railway,GitHub Pages','GitHub ↗|https://github.com/ronchaudhuri1998/sme-ai-advisor;Live Demo ↗|https://ronchaudhuri1998.github.io/sme-ai-advisor/dashboard.html')">
+        <div class="project-card has-img" onclick="showProject('sme')">
           <div class="project-img">
-            <img src="images/sme-ai-advisor.png" alt="SME AI Advisor" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <img src="images/sme-ai-advisor.png" alt="SME AI Adoption Advisor" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
             <div class="project-img-placeholder" style="display:none"><div class="placeholder-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div></div>
           </div>
           <div class="project-body">
             <div class="project-title">SME AI Adoption Advisor <span class="live-badge"><span class="live-dot"></span> Live Demo</span></div>
-            <div class="project-desc">AI strategy advisory tool using Claude Sonnet API to generate tailored Public, Hybrid, and Private AI deployment plans for SMEs across 6 industries with live cloud pricing from AWS, GCP, and RunPod.</div>
+            <div class="project-desc"></div>
             <div class="project-tags"><span class="tag">Claude API</span><span class="tag">FastAPI</span><span class="tag">Railway</span><span class="tag">GitHub Pages</span></div>
-            <div class="project-links">
-              <a class="project-link" href="https://github.com/ronchaudhuri1998/sme-ai-advisor" target="_blank" onclick="event.stopPropagation()">GitHub ↗</a>
-              <a class="project-link" href="https://ronchaudhuri1998.github.io/sme-ai-advisor/dashboard.html" target="_blank" onclick="event.stopPropagation()">Live Demo ↗</a>
-            </div>
+            <div class="project-links"><a class="project-link" href="https://github.com/ronchaudhuri1998/sme-ai-advisor" target="_blank" onclick="event.stopPropagation()">GitHub ↗</a><a class="project-link" href="https://ronchaudhuri1998.github.io/sme-ai-advisor/dashboard.html" target="_blank" onclick="event.stopPropagation()">Live Demo ↗</a></div>
           </div>
         </div>
 
-        <div class="project-card has-img" onclick="openPopup('images/careerspark.png','UTD CareerSpark',['Built an intelligent multi-agent recommendation system using AWS Bedrock AgentCore, FastAPI, and React to deliver personalized, real-time career recommendations for UT Dallas students.', 'Integrated job-market analytics, course data, and AI-driven planning agents to provide adaptive learning paths and project suggestions.', 'Deployed end-to-end on AWS App Runner and Amplify, leveraging Lambda, Secrets Manager, and persistent memory for continuous, context-aware guidance.'],'AWS Bedrock,FastAPI,React,Multi-agent','GitHub ↗|https://github.com/ronchaudhuri1998/utd-career-spark')">
+        <div class="project-card has-img" onclick="showProject('careerspark')">
           <div class="project-img">
             <img src="images/careerspark.png" alt="UTD CareerSpark" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
             <div class="project-img-placeholder" style="display:none"><div class="placeholder-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div></div>
           </div>
           <div class="project-body">
             <div class="project-title">UTD CareerSpark</div>
-            <div class="project-desc">Intelligent multi-agent career recommendation system for UT Dallas students — integrates job-market analytics, course data, and adaptive learning paths deployed on AWS App Runner and Amplify.</div>
+            <div class="project-desc"></div>
             <div class="project-tags"><span class="tag">AWS Bedrock</span><span class="tag">FastAPI</span><span class="tag">React</span><span class="tag">Multi-agent</span></div>
             <div class="project-links"><a class="project-link" href="https://github.com/ronchaudhuri1998/utd-career-spark" target="_blank" onclick="event.stopPropagation()">GitHub ↗</a></div>
           </div>
         </div>
 
-        <div class="project-card has-img" onclick="openPopup('images/document-management.png','AI-Powered Smart Document Management',['Designed and implemented an end-to-end Smart Document Management System to ingest, process, validate, and monitor enterprise documents (POs, Invoices, Service Agreements, RFPs) using Amazon Textract for OCR and structured document intelligence pipelines.', 'Built an LLM-powered document assistant using AWS Bedrock Agents with Claude 3.5 Haiku and RAG to enable conversational querying, PO lookups, contract summaries, and document-level insights over unstructured PDFs.', 'Developed a real-time operations dashboard to track document inventory, MSA-based grouping, invoice utilization, exceptions, and alerts, providing end-to-end visibility into finance and operations workflows.'],'AWS Bedrock,Textract,RAG,Next.js','GitHub ↗|https://github.com/ronchaudhuri1998/emb-global-smart-dms')">
+        <div class="project-card has-img" onclick="showProject('dms')">
           <div class="project-img">
-            <img src="images/document-management.png" alt="Smart Document Management" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <img src="images/document-management.png" alt="AI-Powered Smart Document Management" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
             <div class="project-img-placeholder" style="display:none"><div class="placeholder-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div></div>
           </div>
           <div class="project-body">
             <div class="project-title">AI-Powered Smart Document Management</div>
-            <div class="project-desc">End-to-end document pipeline using Amazon Textract for OCR and AWS Bedrock + Claude 3.5 Haiku with RAG for conversational querying of POs, invoices, and contracts.</div>
+            <div class="project-desc"></div>
             <div class="project-tags"><span class="tag">AWS Bedrock</span><span class="tag">Textract</span><span class="tag">RAG</span><span class="tag">Next.js</span></div>
             <div class="project-links"><a class="project-link" href="https://github.com/ronchaudhuri1998/emb-global-smart-dms" target="_blank" onclick="event.stopPropagation()">GitHub ↗</a></div>
           </div>
         </div>
 
-        <div class="project-card has-img" onclick="openPopup('images/email-automation.png','Automated Email Classification & Routing','n8n pipeline with GPT-4o-mini to classify and route incoming emails to Slack channels by category. Full MySQL logging for traceability and workflow observability.','n8n,OpenAI,MySQL,Slack','GitHub ↗|https://github.com/ronchaudhuri1998/Email_Classification_and_Routing')">
+        <div class="project-card has-img" onclick="showProject('email')">
           <div class="project-img">
-            <img src="images/email-automation.png" alt="Email Automation" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <img src="images/email-automation.png" alt="Automated Email Classification & Routing" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
             <div class="project-img-placeholder" style="display:none"><div class="placeholder-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div></div>
           </div>
           <div class="project-body">
-            <div class="project-title">Automated Email Classification &amp; Routing</div>
-            <div class="project-desc">n8n pipeline with GPT-4o-mini to classify and route incoming emails to Slack channels by category. Full MySQL logging for traceability and workflow observability.</div>
+            <div class="project-title">Automated Email Classification & Routing</div>
+            <div class="project-desc"></div>
             <div class="project-tags"><span class="tag">n8n</span><span class="tag">OpenAI</span><span class="tag">MySQL</span><span class="tag">Slack</span></div>
             <div class="project-links"><a class="project-link" href="https://github.com/ronchaudhuri1998/Email_Classification_and_Routing" target="_blank" onclick="event.stopPropagation()">GitHub ↗</a></div>
           </div>
@@ -491,24 +488,24 @@
 
     <!-- Group 2 -->
     <div class="project-group">
-      <div class="group-heading">NLP & LLM Fine-Tuning</div>
+      <div class="group-heading">NLP &amp; LLM Fine-Tuning</div>
       <div class="projects-grid">
 
-        <div class="project-card" style="cursor:pointer" onclick="openPopup(null,'Fine-Tuning LLMs — Subreddit Rule Compliance',['Fine-tuned Gemma-2 (2B) decoder LLM using LoRA (4-bit quantization) to classify whether Reddit comments comply with or violate subreddit rules.', 'Applied instruction-tuned and classification-head approaches with PyTorch, Hugging Face TRL, and PEFT, achieving an F1-score of 0.84 and improved contextual understanding.', 'Optimized training using gradient checkpointing, BF16 precision, BitsAndBytes, and tracked experiments through Weights & Biases (W&B).'],'PyTorch,HuggingFace,LoRA,PEFT','GitHub ↗|https://github.com/ronchaudhuri1998/llm-subreddit-rule-compliance')">
+        <div class="project-card" style="cursor:pointer" onclick="showProject('llm')">
           <div class="project-body">
             <div class="project-title">Fine-Tuning LLMs — Subreddit Rule Compliance</div>
-            <div class="project-desc">Fine-tuned Gemma-2 (2B) with LoRA 4-bit quantization to classify Reddit comment rule compliance. Achieved F1 of 0.84 using gradient checkpointing and BF16 precision, tracked via W&B.</div>
+            <div class="project-desc">Fine-tuned Gemma-2 (2B) decoder LLM using LoRA (4-bit quantization) to classify whether Reddit comments comply with or v...</div>
             <div class="project-tags"><span class="tag">PyTorch</span><span class="tag">HuggingFace</span><span class="tag">LoRA</span><span class="tag">PEFT</span></div>
-            <div class="project-links"><a class="project-link" href="https://github.com/ronchaudhuri1998/llm-subreddit-rule-compliance" target="_blank">GitHub ↗</a></div>
+            <div class="project-links"><a class="project-link" href="https://github.com/ronchaudhuri1998/llm-subreddit-rule-compliance" target="_blank" onclick="event.stopPropagation()">GitHub ↗</a></div>
           </div>
         </div>
 
-        <div class="project-card" style="cursor:pointer" onclick="openPopup(null,'ModernBERT Multilabel Emotion Detection',['Built an end-to-end Hugging Face pipeline over 7,724 tweets: created multilabel targets for 11 emotions, tokenized with ModernBERT-base, and logged experiments/checkpoints with best-model selection.', 'Fine-tuned with multilabel BCEWithLogitsLoss and per-class pos_weight to address class imbalance, tuned per-class decision thresholds on validation to maximize macro-F1.', 'Resulted in a strong baseline with a 0.72 macro-F1 on validation using the tuned thresholds.'],'ModernBERT,HuggingFace,BCELoss,NLP','GitHub ↗|https://github.com/ronchaudhuri1998/ModernBERT-based-Multilabel-Emotion-Detection-on-Tweets-')">
+        <div class="project-card" style="cursor:pointer" onclick="showProject('bert')">
           <div class="project-body">
             <div class="project-title">ModernBERT Multilabel Emotion Detection</div>
-            <div class="project-desc">Fine-tuned ModernBERT-base over 7,724 tweets to detect 11 emotions simultaneously. Per-class threshold tuning on validation set achieved 0.72 macro-F1.</div>
+            <div class="project-desc">Built an end-to-end Hugging Face pipeline over 7,724 tweets: created multilabel targets for 11 emotions, tokenized with ...</div>
             <div class="project-tags"><span class="tag">ModernBERT</span><span class="tag">HuggingFace</span><span class="tag">BCELoss</span><span class="tag">NLP</span></div>
-            <div class="project-links"><a class="project-link" href="https://github.com/ronchaudhuri1998/ModernBERT-based-Multilabel-Emotion-Detection-on-Tweets-" target="_blank">GitHub ↗</a></div>
+            <div class="project-links"><a class="project-link" href="https://github.com/ronchaudhuri1998/ModernBERT-based-Multilabel-Emotion-Detection-on-Tweets-" target="_blank" onclick="event.stopPropagation()">GitHub ↗</a></div>
           </div>
         </div>
 
@@ -517,33 +514,33 @@
 
     <!-- Group 3 -->
     <div class="project-group">
-      <div class="group-heading">Predictive Modeling & Machine Learning</div>
+      <div class="group-heading">Predictive Modeling &amp; Machine Learning</div>
       <div class="projects-grid">
 
-        <div class="project-card" style="cursor:pointer" onclick="openPopup(null,'Food Delivery ETA Prediction',['Engineered a comprehensive feature pipeline (geodesic distance, order-to-pickup time, cyclical hour/weekday, weather/traffic/festival flags) with imputation and encoding to prepare data for modeling.', 'Benchmarked six regressors (KNN, Decision Tree, Random Forest, XGBoost, SVR, MLP) via RandomizedSearchCV and HalvingRandomSearchCV; XGBoost led with R²=0.832 (RMSE 3.84 min) and a stacked SVR+MLP ensemble achieved R²=0.803 (RMSE 4.12 min).', 'Extracted key delivery-time drivers (multiple orders, driver ratings, traffic density, weather) from feature-importance analyses and formulated targeted operational recommendations for peak and festival scenarios.'],'XGBoost,KNN,Decision Tree,Random Forest,SVR,MLP,Scikit-learn','GitHub ↗|https://github.com/ronchaudhuri1998/Food_Delivery_ETA_Prediction')">
+        <div class="project-card" style="cursor:pointer" onclick="showProject('food')">
           <div class="project-body">
             <div class="project-title">Food Delivery ETA Prediction</div>
-            <div class="project-desc">Benchmarked 6 regressors; XGBoost led with R²=0.832 and RMSE=3.84 min. Feature-engineered geodesic distance, cyclical time encoding, traffic and weather flags.</div>
+            <div class="project-desc">Engineered a comprehensive feature pipeline (geodesic distance, order-to-pickup time, cyclical hour/weekday, weather/tra...</div>
             <div class="project-tags"><span class="tag">XGBoost</span><span class="tag">KNN</span><span class="tag">Decision Tree</span><span class="tag">Random Forest</span><span class="tag">SVR</span><span class="tag">MLP</span><span class="tag">Scikit-learn</span></div>
-            <div class="project-links"><a class="project-link" href="https://github.com/ronchaudhuri1998/Food_Delivery_ETA_Prediction" target="_blank">GitHub ↗</a></div>
+            <div class="project-links"><a class="project-link" href="https://github.com/ronchaudhuri1998/Food_Delivery_ETA_Prediction" target="_blank" onclick="event.stopPropagation()">GitHub ↗</a></div>
           </div>
         </div>
 
-        <div class="project-card" style="cursor:pointer" onclick="openPopup(null,'Customer Churn Prediction',['Built a Deep Learning Model for Customer Churn Prediction using TensorFlow and Keras, applying feature engineering (scaling, one-hot encoding) on structured financial data.', 'Implemented Hyperparameter Optimization using Random Search, Bayesian Optimization, and Hyperband to fine-tune model architecture; Hyperband outperformed others by minimizing loss and reducing training time by 50%.', 'Leveraged key Deep Learning concepts such as activation functions (ReLU, Tanh, Sigmoid), Binary Cross-entropy loss, and Adam optimizer to enhance performance.'],'TensorFlow,Keras,Hyperband','GitHub ↗|https://github.com/ronchaudhuri1998/Customer_Churn_Prediction_Using_Keras_Tensorflow')">
+        <div class="project-card" style="cursor:pointer" onclick="showProject('churn')">
           <div class="project-body">
             <div class="project-title">Customer Churn Prediction</div>
-            <div class="project-desc">TensorFlow/Keras deep learning model with Hyperband optimization, cutting training time by 50% vs. Random Search and Bayesian methods on structured financial data.</div>
+            <div class="project-desc">Built a Deep Learning Model for Customer Churn Prediction using TensorFlow and Keras, applying feature engineering (scal...</div>
             <div class="project-tags"><span class="tag">TensorFlow</span><span class="tag">Keras</span><span class="tag">Hyperband</span></div>
-            <div class="project-links"><a class="project-link" href="https://github.com/ronchaudhuri1998/Customer_Churn_Prediction_Using_Keras_Tensorflow" target="_blank">GitHub ↗</a></div>
+            <div class="project-links"><a class="project-link" href="https://github.com/ronchaudhuri1998/Customer_Churn_Prediction_Using_Keras_Tensorflow" target="_blank" onclick="event.stopPropagation()">GitHub ↗</a></div>
           </div>
         </div>
 
-        <div class="project-card" style="cursor:pointer" onclick="openPopup(null,'Loan Approval Prediction',['Implemented a Keras Sequential classifier (64 to 32 neurons, dropout, early stopping) with one-hot encoding, Min-Max scaling, stratified splits, and class weights; hyperparameter-tuned via Keras Tuner (Random Search, Bayesian, Hyperband) to achieve 92.08% accuracy.', 'Integrated LIME to generate simple, per-application explanations that highlight exactly which inputs drove each approval or rejection, making model decisions transparent to non-technical stakeholders.'],'Keras,LIME,XAI,Keras Tuner','GitHub ↗|https://github.com/ronchaudhuri1998/Loan_Approval_Classification')">
+        <div class="project-card" style="cursor:pointer" onclick="showProject('loan')">
           <div class="project-body">
             <div class="project-title">Loan Approval Prediction</div>
-            <div class="project-desc">Keras sequential classifier with Keras Tuner achieving 92.08% accuracy. Integrated LIME explainability to surface per-application decision drivers for non-technical stakeholders.</div>
+            <div class="project-desc">Implemented a Keras Sequential classifier (64 to 32 neurons, dropout, early stopping) with one-hot encoding, Min-Max sca...</div>
             <div class="project-tags"><span class="tag">Keras</span><span class="tag">LIME</span><span class="tag">XAI</span><span class="tag">Keras Tuner</span></div>
-            <div class="project-links"><a class="project-link" href="https://github.com/ronchaudhuri1998/Loan_Approval_Classification" target="_blank">GitHub ↗</a></div>
+            <div class="project-links"><a class="project-link" href="https://github.com/ronchaudhuri1998/Loan_Approval_Classification" target="_blank" onclick="event.stopPropagation()">GitHub ↗</a></div>
           </div>
         </div>
 
@@ -552,36 +549,38 @@
 
     <!-- Group 4 -->
     <div class="project-group">
-      <div class="group-heading">Analytics & Data Engineering</div>
+      <div class="group-heading">Analytics &amp; Data Engineering</div>
       <div class="projects-grid">
 
-        <div class="project-card has-img" onclick="openPopup('images/supply-chain.png','Retail Supply Chain Analytics Dashboard','Power BI dashboard for FreshNest Market with ribbon charts, decomposition trees, and freight cost analysis. Identifies key shipping delay drivers across the supply chain.','Power BI,DAX,Excel,Analytics','Dashboard ↗|https://app.powerbi.com/view?r=eyJrIjoiNjg0NGRhNmItZGFlZS00ZTE1LTk5Y2UtNGYyYjcxMzcxMzU1IiwidCI6IjhkMjgxZDFkLTljNGQtNGJmNy1iMTZlLTAzMmQxNWRlOWY2YyIsImMiOjN9')">
+        <div class="project-card has-img" onclick="showProject('supply')">
           <div class="project-img">
-            <img src="images/supply-chain.png" alt="Retail Supply Chain Dashboard" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <img src="images/supply-chain.png" alt="Retail Supply Chain Analytics Dashboard" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
             <div class="project-img-placeholder" style="display:none"><div class="placeholder-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div></div>
           </div>
           <div class="project-body">
             <div class="project-title">Retail Supply Chain Analytics Dashboard</div>
-            <div class="project-desc">Power BI dashboard for FreshNest Market with ribbon charts, decomposition trees, and freight cost analysis. Identifies key shipping delay drivers across the supply chain.</div>
+            <div class="project-desc"></div>
             <div class="project-tags"><span class="tag">Power BI</span><span class="tag">DAX</span><span class="tag">Excel</span><span class="tag">Analytics</span></div>
             <div class="project-links"><a class="project-link" href="https://app.powerbi.com/view?r=eyJrIjoiNjg0NGRhNmItZGFlZS00ZTE1LTk5Y2UtNGYyYjcxMzcxMzU1IiwidCI6IjhkMjgxZDFkLTljNGQtNGJmNy1iMTZlLTAzMmQxNWRlOWY2YyIsImMiOjN9" target="_blank" onclick="event.stopPropagation()">Dashboard ↗</a></div>
           </div>
         </div>
 
-        <div class="project-card has-img" style="cursor:pointer" onclick="openPopup('images/hospital-management.png','Hospital Management System',['Designed and implemented a comprehensive database system for managing critical hospital operations, including patient records, doctor assignments, appointment scheduling, and billing processes.', 'Utilized PostgreSQL for database modeling and implementation, ensuring efficient data storage by normalizing the schema to Third Normal Form (3NF) to minimize redundancy and optimize performance.', 'Implemented advanced SQL features such as triggers, views, and stored procedures to automate processes like billing generation and ensure secure data management.'],'PostgreSQL,SQL,3NF','GitHub ↗|https://github.com/ronchaudhuri1998/Hospital_Management_System')">
+        <div class="project-card has-img" onclick="showProject('hospital')">
           <div class="project-img">
             <img src="images/hospital-management.png" alt="Hospital Management System" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
             <div class="project-img-placeholder" style="display:none"><div class="placeholder-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div></div>
           </div>
           <div class="project-body">
             <div class="project-title">Hospital Management System</div>
-            <div class="project-desc">PostgreSQL database with 3NF schema, triggers, views, and stored procedures for patient records, billing generation, appointment scheduling, and secure data management.</div>
+            <div class="project-desc"></div>
             <div class="project-tags"><span class="tag">PostgreSQL</span><span class="tag">SQL</span><span class="tag">3NF</span></div>
-            <div class="project-links"><a class="project-link" href="https://github.com/ronchaudhuri1998/Hospital_Management_System" target="_blank">GitHub ↗</a></div>
+            <div class="project-links"><a class="project-link" href="https://github.com/ronchaudhuri1998/Hospital_Management_System" target="_blank" onclick="event.stopPropagation()">GitHub ↗</a></div>
           </div>
         </div>
 
       </div>
+    </div>
+
     </div>
 
   </div>
@@ -820,6 +819,14 @@
 
 <script>
 function toggle(card) { card.classList.toggle('open'); }
+
+const PROJECTS = {"sme": {"img": "images/sme-ai-advisor.png", "title": "SME AI Adoption Advisor", "bullets": ["Built an end-to-end AI strategy advisory tool using the Anthropic Claude Sonnet API (temperature=0) that generates tailored Public, Hybrid, and Private AI deployment plans for SMEs across 6 industry verticals, with live cloud pricing from AWS, GCP, Vast.ai, and RunPod APIs.", "Engineered a Python FastAPI backend handling Claude API orchestration, JSON schema validation, and ReportLab PDF generation with matplotlib charts, deployed on Railway — paired with a static HTML/CSS/JS dashboard featuring interactive plan tabs, SVG charts, and KPI cards.", "Developed a multi-sector questionnaire engine across Manufacturing, Healthcare, Retail, Financial Services, Telecommunications, and Logistics — generating AI adoption reports covering compliance, cost breakdowns, roadmaps, and ROI projections with optional PDF export."], "tags": "Claude API,FastAPI,Railway,GitHub Pages", "links": "GitHub|https://github.com/ronchaudhuri1998/sme-ai-advisor;Live Demo|https://ronchaudhuri1998.github.io/sme-ai-advisor/dashboard.html"}, "careerspark": {"img": "images/careerspark.png", "title": "UTD CareerSpark", "bullets": ["Built an intelligent multi-agent recommendation system using AWS Bedrock AgentCore, FastAPI, and React to deliver personalized, real-time career recommendations for UT Dallas students.", "Integrated job-market analytics, course data, and AI-driven planning agents to provide adaptive learning paths and project suggestions.", "Deployed end-to-end on AWS App Runner and Amplify, leveraging Lambda, Secrets Manager, and persistent memory for continuous, context-aware guidance."], "tags": "AWS Bedrock,FastAPI,React,Multi-agent", "links": "GitHub|https://github.com/ronchaudhuri1998/utd-career-spark"}, "dms": {"img": "images/document-management.png", "title": "AI-Powered Smart Document Management", "bullets": ["Designed an end-to-end Smart Document Management System to ingest, process, validate, and monitor enterprise documents (POs, Invoices, Service Agreements, RFPs) using Amazon Textract for OCR and structured document intelligence pipelines.", "Built an LLM-powered document assistant using AWS Bedrock Agents with Claude 3.5 Haiku and RAG to enable conversational querying, PO lookups, contract summaries, and document-level insights over unstructured PDFs.", "Developed a real-time operations dashboard to track document inventory, MSA-based grouping, invoice utilization, exceptions, and alerts, providing end-to-end visibility into finance and operations workflows."], "tags": "AWS Bedrock,Textract,RAG,Next.js", "links": "GitHub|https://github.com/ronchaudhuri1998/emb-global-smart-dms"}, "email": {"img": "images/email-automation.png", "title": "Automated Email Classification & Routing", "bullets": ["Built an end-to-end automation pipeline using n8n, Gmail API, OpenAI (gpt-4o-mini), MySQL, and Slack to classify incoming emails into sales, billing, tech-support, and general categories.", "Implemented intelligent decision routing with OpenAI-powered text classification and n8n Switch logic, automatically delivering categorized messages to the correct Slack channels.", "Integrated data logging with MySQL to store metadata for each email (sender, subject, body preview, category, timestamp), enabling traceability and workflow observability."], "tags": "n8n,OpenAI,MySQL,Slack", "links": "GitHub|https://github.com/ronchaudhuri1998/Email_Classification_and_Routing"}, "llm": {"img": null, "title": "Fine-Tuning LLMs — Subreddit Rule Compliance", "bullets": ["Fine-tuned Gemma-2 (2B) decoder LLM using LoRA (4-bit quantization) to classify whether Reddit comments comply with or violate subreddit rules.", "Applied instruction-tuned and classification-head approaches with PyTorch, Hugging Face TRL, and PEFT, achieving an F1-score of 0.84 and improved contextual understanding.", "Optimized training using gradient checkpointing, BF16 precision, BitsAndBytes, and tracked experiments through Weights & Biases (W&B)."], "tags": "PyTorch,HuggingFace,LoRA,PEFT", "links": "GitHub|https://github.com/ronchaudhuri1998/llm-subreddit-rule-compliance"}, "bert": {"img": null, "title": "ModernBERT Multilabel Emotion Detection", "bullets": ["Built an end-to-end Hugging Face pipeline over 7,724 tweets: created multilabel targets for 11 emotions, tokenized with ModernBERT-base, and logged experiments with best-model selection.", "Fine-tuned with multilabel BCEWithLogitsLoss and per-class pos_weight to address class imbalance, tuned per-class decision thresholds on validation to maximize macro-F1.", "Resulted in a strong baseline with a 0.72 macro-F1 on validation using the tuned thresholds."], "tags": "ModernBERT,HuggingFace,BCELoss,NLP", "links": "GitHub|https://github.com/ronchaudhuri1998/ModernBERT-based-Multilabel-Emotion-Detection-on-Tweets-"}, "food": {"img": null, "title": "Food Delivery ETA Prediction", "bullets": ["Engineered a comprehensive feature pipeline (geodesic distance, order-to-pickup time, cyclical hour/weekday, weather/traffic/festival flags) with imputation and encoding to prepare data for modeling.", "Benchmarked six regressors (KNN, Decision Tree, Random Forest, XGBoost, SVR, MLP) via RandomizedSearchCV; XGBoost led with R2=0.832 (RMSE 3.84 min) and a stacked SVR+MLP ensemble achieved R2=0.803.", "Extracted key delivery-time drivers (multiple orders, driver ratings, traffic density, weather) from feature-importance analyses and formulated targeted operational recommendations."], "tags": "XGBoost,KNN,Decision Tree,Random Forest,SVR,MLP,Scikit-learn", "links": "GitHub|https://github.com/ronchaudhuri1998/Food_Delivery_ETA_Prediction"}, "churn": {"img": null, "title": "Customer Churn Prediction", "bullets": ["Built a Deep Learning Model for Customer Churn Prediction using TensorFlow and Keras, applying feature engineering (scaling, one-hot encoding) on structured financial data.", "Implemented Hyperparameter Optimization using Random Search, Bayesian Optimization, and Hyperband; Hyperband outperformed others by minimizing loss and reducing training time by 50%.", "Leveraged key Deep Learning concepts such as activation functions (ReLU, Tanh, Sigmoid), Binary Cross-entropy loss, and Adam optimizer to enhance performance."], "tags": "TensorFlow,Keras,Hyperband", "links": "GitHub|https://github.com/ronchaudhuri1998/Customer_Churn_Prediction_Using_Keras_Tensorflow"}, "loan": {"img": null, "title": "Loan Approval Prediction", "bullets": ["Implemented a Keras Sequential classifier (64 to 32 neurons, dropout, early stopping) with one-hot encoding, Min-Max scaling, stratified splits, and class weights; hyperparameter-tuned via Keras Tuner to achieve 92.08% accuracy.", "Integrated LIME to generate simple, per-application explanations that highlight exactly which inputs drove each approval or rejection, making model decisions transparent to non-technical stakeholders."], "tags": "Keras,LIME,XAI,Keras Tuner", "links": "GitHub|https://github.com/ronchaudhuri1998/Loan_Approval_Classification"}, "supply": {"img": "images/supply-chain.png", "title": "Retail Supply Chain Analytics Dashboard", "bullets": ["Developed a comprehensive dashboard to analyze supply chain performance across multiple product categories, utilizing ribbon charts and interactive donut drill-downs to showcase sales trends for FreshNest Market in Power BI.", "Conducted in-depth order fulfillment analysis using decomposition trees and line charts to break down shipping delays and identify key drivers impacting delivery performance.", "Implemented supplier and freight cost analysis through stacked column charts, providing actionable insights into cost efficiency and supplier reliability across the supply chain."], "tags": "Power BI,DAX,Excel,Analytics", "links": "Dashboard|https://app.powerbi.com/view?r=eyJrIjoiNjg0NGRhNmItZGFlZS00ZTE1LTk5Y2UtNGYyYjcxMzcxMzU1IiwidCI6IjhkMjgxZDFkLTljNGQtNGJmNy1iMTZlLTAzMmQxNWRlOWY2YyIsImMiOjN9"}, "hospital": {"img": "images/hospital-management.png", "title": "Hospital Management System", "bullets": ["Designed and implemented a comprehensive database system for managing critical hospital operations, including patient records, doctor assignments, appointment scheduling, and billing processes.", "Utilized PostgreSQL for database modeling and implementation, ensuring efficient data storage by normalizing the schema to Third Normal Form (3NF) to minimize redundancy and optimize performance.", "Implemented advanced SQL features such as triggers, views, and stored procedures to automate processes like billing generation and ensure secure data management."], "tags": "PostgreSQL,SQL,3NF", "links": "GitHub|https://github.com/ronchaudhuri1998/Hospital_Management_System"}};
+
+function showProject(id) {
+  var p = PROJECTS[id];
+  if (!p) return;
+  openPopup(p.img, p.title, p.bullets, p.tags, p.links);
+}
 
 function openPopup(img, title, bullets, tags, links) {
   var imgSide = document.getElementById('popupImgSide');
